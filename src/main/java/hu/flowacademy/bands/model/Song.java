@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Data
@@ -15,12 +16,16 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Szamok {
+public class Song {
     @Id
     private String id;
-    private String cime;
-    private int hossza;
-    private int licenszDija;
+    @ManyToOne
+    Album album;
+    @ManyToOne
+    Band owner;
+    private String title;
+    private int length;
+    private int licensPrice;
 
 
 

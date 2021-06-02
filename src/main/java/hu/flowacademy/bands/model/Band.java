@@ -2,25 +2,23 @@ package hu.flowacademy.bands.model;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.Date;
 
 @Data
 @Entity
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Album {
-
+public class Band {
     @Id
     private String id;
-    @ManyToOne
-    Band owner;
-    private String albumName;
-    private Date releaseDate;
-
+    @Column(nullable = false,unique = true)
+    private String bandName ;
+    private Genre genre;
 }

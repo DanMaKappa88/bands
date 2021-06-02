@@ -1,5 +1,5 @@
 package hu.flowacademy.bands.model;
 
-public enum Mufaj {
+public enum Genre {
     POP, ROCK, MEHTAL ,REP;
 }

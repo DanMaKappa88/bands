@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -47,5 +48,15 @@ public class BandController {
                         .bandName("valami1223")
                         .genre(Genre.REP).build()
         );
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Band> findOne(@PathVariable String id){
+        log.debug("Getting 1 user with id from param {}",id );
+        return Optional.of(Band.builder()
+                .id("1")
+                .bandName("valami")
+                .genre(Genre.REP)
+                .build());
     }
 }
